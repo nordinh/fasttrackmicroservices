@@ -15,3 +15,6 @@ Presents good on powerpoint slides: BPM services, business services and data ser
  - **Solution**: ESB? Hides all integrations in a magic box, but they do not disappear and stuff gets harder.
 It also does not scale, it becomes one giant hub for all integrations.
 
+### Summary
+For the past decade(s) we have implemented a lot of stuff above HTTP(S) like WS-*, security protocols, ...
+In reality the HTTP protocol already provides solutions for most of those problems, and they are proven at global scale 
