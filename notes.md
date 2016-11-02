@@ -15,6 +15,13 @@ Presents good on powerpoint slides: BPM services, business services and data ser
  - **Solution**: ESB? Hides all integrations in a magic box, but they do not disappear and stuff gets harder.
 It also does not scale, it becomes one giant hub for all integrations.
 
+### Web as a platform
+Except from POST all verbs are idempotent (albeit not safe!) and can thus be retried in the case of failure = easiest recovery strategy possible!
+See slides and RFC 2616 for all the details on verbs, headers and status codes.
+ - **JSON-LD**: JSON for linked documents, hypermedia format in JSON
+ - **HAL**: JSON Hypertext Application Language
+
 ### Summary
 For the past decade(s) we have implemented a lot of stuff above HTTP(S) like WS-*, security protocols, ...
-In reality the HTTP protocol already provides solutions for most of those problems, and they are proven at global scale 
+In reality the HTTP protocol already provides solutions for most of those problems, and they are proven at global scale
+ 
