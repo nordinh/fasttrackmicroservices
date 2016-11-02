@@ -11,7 +11,7 @@ Challenge: get business people to focus on what instead of how!
 
 ### *Old school* SOA
 Presents good on powerpoint slides: BPM services, business services and data services integrated with each other.
-**However**: Does not scale, when the number of BPM services increases so does the number of integrations.
-**Solution**: ESB? Hides all integrations in a magic box, but they do not disappear and stuff gets harder.
+ - **However**: Does not scale, when the number of BPM services increases so does the number of integrations.
+ - **Solution**: ESB? Hides all integrations in a magic box, but they do not disappear and stuff gets harder.
 It also does not scale, it becomes one giant hub for all integrations.
 
