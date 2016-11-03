@@ -13,16 +13,19 @@ import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.Response;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 import java.io.ByteArrayInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static javax.ws.rs.client.Entity.entity;
+import static org.glassfish.jersey.logging.LoggingFeature.Verbosity.PAYLOAD_ANY;
 
 public class Exercise1Application {
 
     private static Logger logger = Logger.getLogger(Exercise1Application.class.getName());
-    private static Feature feature = new LoggingFeature(logger, Level.INFO, null, null);
+    private static Feature feature = new LoggingFeature(logger, Level.INFO, PAYLOAD_ANY, null);
 
     public static final JerseyClient CLIENT = JerseyClientBuilder.createClient(new ClientConfig()).register(feature);
     public static final String PAYMENT_REL = "http://relations.restbucks.com/payment";
@@ -35,7 +38,6 @@ public class Exercise1Application {
         Response orderResponse = orderCoffee();
 
         String responseAsString = orderResponse.readEntity(String.class);
-        logger.info(responseAsString);
 
         Document orderResponseDocument = toDocument(responseAsString);
         payCoffee(getCost(orderResponseDocument), getPaymentURI(orderResponseDocument));
@@ -71,30 +73,20 @@ public class Exercise1Application {
         Response paymentResponse = CLIENT.target(paymentURI)
                 .request("application/vnd.restbucks+xml")
                 .put(entity(payment, "application/vnd.restbucks+xml"));
-
-        logger.info(paymentResponse.readEntity(String.class));
     }
 
-    private String getCost(Document orderResponse) {
-        return orderResponse
-                .getDocumentElement()
-                .getElementsByTagNameNS("http://schemas.restbucks.com", "cost")
-                .item(0)
-                .getTextContent();
+    private String getCost(Document orderResponse) throws Exception {
+        return (String) XPathFactory.newInstance().newXPath()
+                .compile("//*[local-name()='order']/*[local-name()='cost']")
+                .evaluate(orderResponse, XPathConstants.STRING);
     }
 
-    private String getPaymentURI(Document orderResponse) {
-        NodeList links = orderResponse
-                .getDocumentElement()
-                .getElementsByTagNameNS("http://schemas.restbucks.com/dap", "link");
+    private String getPaymentURI(Document orderResponse) throws Exception {
+        Node link =  (Node) XPathFactory.newInstance().newXPath()
+                .compile("//*[local-name()='order']/*[local-name()='link'][@*[local-name() = 'rel' and .='http://relations.restbucks.com/payment']]")
+                .evaluate(orderResponse, XPathConstants.NODE);
 
-        for (int i = 0; i < links.getLength(); i++) {
-            Node link = links.item(i);
-            if (link.getAttributes().getNamedItem("rel").getTextContent().equals(PAYMENT_REL)) {
-                return link.getAttributes().getNamedItem("uri").getTextContent();
-            }
-        }
-        throw new IllegalStateException();
+        return link.getAttributes().getNamedItem("uri").getTextContent();
     }
 
     private Document toDocument(String xml) throws Exception {
