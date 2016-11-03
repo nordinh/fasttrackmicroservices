@@ -24,4 +24,9 @@ See slides and RFC 2616 for all the details on verbs, headers and status codes.
 ### Summary
 For the past decade(s) we have implemented a lot of stuff above HTTP(S) like WS-*, security protocols, ...
 In reality the HTTP protocol already provides solutions for most of those problems, and they are proven at global scale
- 
+
+## Day 2
+
+### Exercise 1
+Writing a REST client that places an order and pays for it. Payload was XML, which makes it harder in languages like Java
+in which you usually map xml to objects

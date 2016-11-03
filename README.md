@@ -9,4 +9,5 @@ Course notes: [notes.md](notes.md)
  - Rest in practice
  - [RCF 2616](https://www.ietf.org/rfc/rfc2616.txt)
  - [Starbucks does not use Two Phase Commit](http://www.enterpriseintegrationpatterns.com/docs/IEEE_Software_Design_2PC.pdf) by Gregor Hohpe
- 
+ - Growing Object-Oriented Software, Guided by Tests
+ - RESTful Web APIs
