@@ -10,7 +10,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import javax.ws.rs.core.Feature;
-import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -100,7 +99,7 @@ public class Exercise1Application {
 
     private Document toDocument(String xml) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setNamespaceAware(true);
+        dbf.setNamespaceAware(false);
         DocumentBuilder db = dbf.newDocumentBuilder();
         return db.parse(new InputSource(new ByteArrayInputStream(xml.getBytes("utf-8"))));
     }
