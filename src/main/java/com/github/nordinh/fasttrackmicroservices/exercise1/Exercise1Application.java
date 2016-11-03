@@ -84,10 +84,6 @@ public class Exercise1Application {
                 .getTextContent();
     }
 
-    private Link getPaymentLink(Response orderResponse) {
-        return orderResponse.getLink(PAYMENT_REL);
-    }
-
     private String getPaymentURI(Document orderResponse) {
         NodeList links = orderResponse
                 .getDocumentElement()
