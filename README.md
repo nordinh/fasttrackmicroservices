@@ -11,3 +11,4 @@ Course notes: [notes.md](notes.md)
  - [Starbucks does not use Two Phase Commit](http://www.enterpriseintegrationpatterns.com/docs/IEEE_Software_Design_2PC.pdf) by Gregor Hohpe
  - Growing Object-Oriented Software, Guided by Tests
  - RESTful Web APIs
+ - Getting started with OAuth2

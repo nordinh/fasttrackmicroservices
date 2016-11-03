@@ -36,3 +36,18 @@ Stateless services, because otherwise (at scale) replication is needed in a (n/2
 or whatever is replicated to prevent race conditions. You cannot Memcache or Hazelcast your way out of this (because 
 asynchronous replication).
  - [Collapsed Forwarding](http://wiki.squid-cache.org/Features/CollapsedForwarding) to avoid spikes and group multiple requests for the same resource.
+ - [Cache channels](https://github.com/mnot/squid-channels) as an event bus for controlling the cache
+ 
+### Event-driven archictecture
+Atom feeds! Only use if no low-latency requirements, because latency is traded off for scalability and availability.
+In case of a massive amount of events and you do not want your clients to read them all, you can fall back to
+truncation/compaction/snapshots to represent the point in time where a certain state applies and take that as a starting
+point to consume events again. Clients need to be aware of those different kind of events/entries.
+
+### Security
+Use plain basic authentication in combination with HTTPS. Another option discussed in 'Rest in Practice' is an atom feed over HTTP
+with entries encrypted by use of a shared secret. However those atom feeds are cached forever, opening the door for brute force
+attacks (which has become much less expensive with the trend of affordable GPU rental by e.g. Amazon).
+OAuth as a nice alternative for authentication, e.g. works also really wel for SSO.
+
+
