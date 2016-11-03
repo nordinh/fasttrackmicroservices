@@ -99,7 +99,7 @@ public class Exercise1Application {
 
     private Document toDocument(String xml) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setNamespaceAware(false);
+        dbf.setNamespaceAware(true);
         DocumentBuilder db = dbf.newDocumentBuilder();
         return db.parse(new InputSource(new ByteArrayInputStream(xml.getBytes("utf-8"))));
     }
