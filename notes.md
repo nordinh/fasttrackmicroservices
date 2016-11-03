@@ -30,3 +30,9 @@ In reality the HTTP protocol already provides solutions for most of those proble
 ### Exercise 1
 Writing a REST client that places an order and pays for it. Payload was XML, which makes it harder in languages like Java
 in which you usually map xml to objects
+
+### Scalability
+Stateless services, because otherwise (at scale) replication is needed in a (n/2 + 1) way (n=#machines) to make sure session
+or whatever is replicated to prevent race conditions. You cannot Memcache or Hazelcast your way out of this (because 
+asynchronous replication).
+ - [Collapsed Forwarding](http://wiki.squid-cache.org/Features/CollapsedForwarding) to avoid spikes and group multiple requests for the same resource.
