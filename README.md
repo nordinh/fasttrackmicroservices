@@ -15,3 +15,6 @@ Course notes: [notes.md](notes.md)
  - [An Agile Approach to a Legacy System](http://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf) on the strangler pattern
  - Working effectively with Legacy Code by Michael C. Feathers
  - [Managing microservices with Neo4J](https://neo4j.com/blog/managing-microservices-neo4j/)
+ - [Consumer Driven Contracts](http://martinfowler.com/articles/consumerDrivenContracts.html)
+ - Service Design Patterns by Robert Daigneau and Ian Robinson
+ - [Warp and weft](https://jmarks001.files.wordpress.com/2015/04/warp-and-weft.gif)
