@@ -53,5 +53,10 @@ OAuth as a nice alternative for authentication, e.g. works also really wel for S
 ## Day 3
 
 ### Distributed systems
-
+Distributed systems are hard and should be avoided when possible. Why do we still want to do it? High availability, high throughput and data redundancy.
+ACID transactions in a distributed system are a DOS attack because of locking and coordination.
+ - A distributed commit log such as Apache Kafka can help here, it's writes are append only and one can only read in the order that items have been written (no random access)
+which makes it performant, o(1) vs O(n).
+ - Raft as consensus protocol for the *distributed* commit log. Raft = ties logs together
+Distributed transactions: try making an explicit resource with which you can interact in a transactional way, i.e. one resource to interact with.
 
