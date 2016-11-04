@@ -50,4 +50,8 @@ with entries encrypted by use of a shared secret. However those atom feeds are c
 attacks (which has become much less expensive with the trend of affordable GPU rental by e.g. Amazon).
 OAuth as a nice alternative for authentication, e.g. works also really wel for SSO.
 
+## Day 3
+
+### Distributed systems
+
 
