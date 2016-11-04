@@ -63,3 +63,6 @@ Distributed transactions: try making an explicit resource with which you can int
 ### From monoliths to microservices
 When talking with *Architects* in technical terms they will try to corrupt your image. Keep the discussions on a business level
 and drag them back in to keep the discussions on a business level.
+
+### Operating microservices
+[Some signs you are not at microservice level yet](https://twitter.com/deniseyu21/status/750993932591521793)
