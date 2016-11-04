@@ -12,3 +12,5 @@ Course notes: [notes.md](notes.md)
  - Growing Object-Oriented Software, Guided by Tests
  - RESTful Web APIs
  - Getting started with OAuth2
+ - [An Agile Approach to a Legacy System](http://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf) on the strangler pattern
+ - Working effectively with Legacy Code by Michael C. Feathers

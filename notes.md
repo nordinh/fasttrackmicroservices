@@ -60,3 +60,6 @@ which makes it performant, o(1) vs O(n).
  - Raft as consensus protocol for the *distributed* commit log. Raft = ties logs together
 Distributed transactions: try making an explicit resource with which you can interact in a transactional way, i.e. one resource to interact with.
 
+### From monoliths to microservices
+When talking with *Architects* in technical terms they will try to corrupt your image. Keep the discussions on a business level
+and drag them back in to keep the discussions on a business level.
